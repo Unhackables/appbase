@@ -11,6 +11,7 @@ plugins are configured, initialized, started, and shutdown in the proper order.
 - Automaticly Load Dependent Plugins in Order
 - Plugins can specify commandline arguments and configuration file options
 - Program gracefully exits from SIGINT and SIGTERM
+- Minimal Dependencies (Boost 1.60, c++14)
 
 ## Defining a Plugin
 
@@ -69,6 +70,19 @@ int main( int argc, char** argv ) {
 }
 ```
 
+This example can be used like follows:
+
+```
+./examples/appbase_example --plugin net_plugin
+initialize chain plugin
+initialize net plugin
+starting chain plugin
+starting net plugin
+^C
+shutdown net plugin
+shutdown chain plugin
+exited cleanly
+```
 
 ### Boost ASIO 
 
